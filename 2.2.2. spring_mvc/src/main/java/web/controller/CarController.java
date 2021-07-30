@@ -15,43 +15,17 @@ import java.util.List;
 public class CarController {
     CarService carService = new CarServiceImpl();
 
-    public List<Car> makeFiveCar() {
-        return carService.makeFiveCar();
+    public List<Car> makeFiveCar(int size) {
+        return carService.makeFiveCar(size);
     }
 
     @GetMapping("/cars")
     public String showCarList(@RequestParam(value = "count", required = false) Integer count, Model model) {
 
         if (count == null) {
-            model.addAttribute("message", makeFiveCar());
+            model.addAttribute("message", makeFiveCar(5));
         } else {
-            switch (count) {
-                case 2:
-                    model.addAttribute("message", makeFiveCar().get(0) +
-                            "\n" +
-                            makeFiveCar().get(1));
-                    break;
-                case 3:
-                    model.addAttribute("message",
-                            makeFiveCar().get(0) +
-                                    "\n" +
-                                    makeFiveCar().get(1) +
-                                    "\n" +
-                                    makeFiveCar().get(2));
-                    break;
-                case 4:
-                    model.addAttribute("message",
-                            makeFiveCar().get(0) +
-                                    "\n" +
-                                    makeFiveCar().get(1) +
-                                    "\n" +
-                                    makeFiveCar().get(2) +
-                                    "\n" +
-                                    makeFiveCar().get(3));
-                    break;
-                default:
-                    model.addAttribute("message", makeFiveCar());
-            }
+            model.addAttribute("message", makeFiveCar(count));
         }
         return "car/cars";
     }

@@ -10,7 +10,7 @@ import java.util.List;
 public class CarServiceImpl implements CarService{
     CarDao carDao = new CarDaoImpl();
     @Override
-    public List<Car> makeFiveCar() {
-        return carDao.makeFiveCar();
+    public List<Car> makeFiveCar(int size) {
+        return carDao.makeFiveCar(size);
     }
 }
