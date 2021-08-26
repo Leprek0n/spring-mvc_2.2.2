@@ -1,31 +1,18 @@
 package web.model;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.ArrayList;
-import java.util.List;
-
-
 public class Car {
-    private String color;
+
     private String model;
-    private int series;
+    private String serial;
 
-    public Car(String color, String model, int series) {
-        this.color = color;
+
+    public Car() {
+    }
+
+    public Car(String model, String serial) {
         this.model = model;
-        this.series = series;
-    }
+        this.serial = serial;
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public String getModel() {
@@ -36,20 +23,20 @@ public class Car {
         this.model = model;
     }
 
-    public int getSeries() {
-        return series;
+    public String getSerial() {
+        return serial;
     }
 
-    public void setSeries(int series) {
-        this.series = series;
+    public void setSerial(String serial) {
+        this.serial = serial;
     }
 
     @Override
     public String toString() {
         return "Car{" +
-                "color='" + color + '\'' +
-                ", model='" + model + '\'' +
-                ", series=" + series +
+                "model='" + model + '\'' +
+                ", serial='" + serial + '\'' +
+                ", date=" +
                 '}';
     }
 }
