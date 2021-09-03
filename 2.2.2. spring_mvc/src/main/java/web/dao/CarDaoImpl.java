@@ -19,9 +19,7 @@ public class CarDaoImpl implements CarDao {
         cars.add(new Car("Mazda", "3"));
         cars.add(new Car("Toyota", "4"));
 
-        while (count < cars.size()) {
-            cars.remove(cars.size() - 1);
-        }
-        return cars;
+       
+        return cars.subList(0,count);
     }
 }
